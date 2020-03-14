@@ -30,27 +30,6 @@ public class Genero {
 		return "Genero [id=" + id + ", nome=" + nome + "]";
 	}
 	
-	public Genero buscarGenero(int id) throws IOException {
-		Genero genero = null;
-		String sql = "select id, nome from genero where id=?";
-
-		try (Connection conn = ConnectionFactory.getConnection(); 
-				PreparedStatement pst = conn.prepareStatement(sql);) {
-
-			pst.setInt(1, id);
-			try (ResultSet rs = pst.executeQuery();) {
-
-				if (rs.next()) {
-					genero = new Genero();
-					genero.setId(id);
-					genero.setNome(rs.getString("nome"));
-				}
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new IOException(e);
-		}
-		return genero;
-	}
+	
 	
 }
