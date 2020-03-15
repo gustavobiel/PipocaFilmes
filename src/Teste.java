@@ -10,6 +10,7 @@ public class Teste {
 			manter.listarGeneros();
 			int id = manter.inserirFilme();
 			manter.listarFilme(id);
+			System.out.println("=======================");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
