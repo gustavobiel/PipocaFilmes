@@ -7,15 +7,20 @@ import java.util.ArrayList;
 
 import ads.pipoca.model.entity.Filme;
 import ads.pipoca.model.entity.Genero;
+import ads.pipoca.model.service.FilmeService;
 import ads.pipoca.model.service.GeneroService;
 
 public class ManterFilmes {
 
-	public void listarFilme(int id) throws IOException {
-		Filme filme;
-		filme = new Filme();
-		filme = filme.buscarFilme(id);
-		System.out.println(filme);
+	
+	FilmeService filmeService = new FilmeService();
+	
+	public Filme atualizarFilme(Filme filme) throws Exception {
+		return filmeService.atualizarFilme(filme);
+	}
+	
+	public Filme listarFilme(int id) throws Exception {
+		return filmeService.buscarFilme(id);
 	}
 
 	public void listarGeneros() throws IOException {
